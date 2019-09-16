@@ -10,8 +10,11 @@ public class Inventory {
 	private String[] typeBlocks;
 	
 	public Inventory() {
-		inv= new Stack[4*9];
-		typeBlocks = new String[5];
+		inv= new Stack[36];
+		typeBlocks = new String[2];
+		typeBlocks[0]="dirt";
+		typeBlocks[1]="stone";
+		typeBlocks[0]="sand";
 		counter = new HashMap<>();
 		for(String s:typeBlocks) {
 			counter.put(s, 0);
@@ -50,9 +53,6 @@ public class Inventory {
 		}
 		inv=s;
 	}
-	public void sortBlocks() {
-		
-	}
 	public ArrayList<Stack<Block>[]> groupQuickAccess() {
 		countBlocks();
 		ArrayList<Stack<Block>[]> qt = new ArrayList<>();
@@ -88,6 +88,24 @@ public class Inventory {
 					counter.put(com, s.size());
 			}
 		}
+	}
+	public Stack<Block>[] getInv() {
+		return inv;
+	}
+	public void setInv(Stack<Block>[] inv) {
+		this.inv = inv;
+	}
+	public HashMap<String, Integer> getCounter() {
+		return counter;
+	}
+	public void setCounter(HashMap<String, Integer> counter) {
+		this.counter = counter;
+	}
+	public String[] getTypeBlocks() {
+		return typeBlocks;
+	}
+	public void setTypeBlocks(String[] typeBlocks) {
+		this.typeBlocks = typeBlocks;
 	}
 	
 }
